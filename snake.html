@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Simple Snake Game</title>
+<html>
+<head>
+	  <meta charset="utf-8">
+    <title>Snake</title>
     <style>
       canvas {
         display: block;
@@ -19,7 +19,7 @@
   <body>
     <script>
       //Constants
-      var COLS = 26, ROWS = 26;
+      var COLS = 30, ROWS = 30;
       // IDs
       var EMPTY = 0, SNAKE = 1, FRUIT = 2;
       //Directions
@@ -41,9 +41,9 @@
           this.height = r;
 
           this._grid = [];
-          for (var x = 0; x < c, x++) {
+          for (var x = 0; x < c; x++) {
             this._grid.push([]);
-            for (var y = 0; y < r, y++) {
+            for (var y = 0; y < r; y++) {
               this._grid[x].push(d);
             }
           }
@@ -97,12 +97,12 @@
 
       function main() {
         canvas = document.createElement("canvas");
-        canvas.width = COL*20;
-        canvas.height = ROWS*20;
+        canvas.width = COLS*15;
+        canvas.height = ROWS*15;
         ctx = canvas.getContext("2d");
         document.body.appendChild(canvas);
 
-        ctx.font = "12 px Helvetica";
+        ctx.font = "14px Times";
 
         frames = 0;
         keystate = {};
@@ -196,17 +196,17 @@
                 ctx.fillStyle = "#fff";
                 break;
               case SNAKE:
-                ctx.fillStyle = "#0ff";
+                ctx.fillStyle = "#000";
                 break;
               case FRUIT:
-                ctx.fillStyle = "#f00";
+                ctx.fillStyle = "#000";
                 break;
             }
             ctx.fillRect(x*tw, y*th, tw, th);
           }
         }
         ctx.fillStyle = "#000";
-        ctx.fillText("SCORE: " + score, 10, canvas.height - 10);
+        ctx.fillText("SCORE: " + score, canvas.width - 80, canvas.height - 10);
       }
 
       main();
