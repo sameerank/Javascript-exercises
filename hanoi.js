@@ -29,7 +29,7 @@ HanoiGame.prototype.run = function (completionCallback) {
 
 };
 
-function HanoiGame() {
+function HanoiGame () {
   this.stacks = [[3,2,1],[],[]];
 }
 
