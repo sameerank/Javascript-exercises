@@ -83,5 +83,33 @@ function curriedSum(numArgs) {
 
 
 Function.prototype.myCurry = function (numArgs) {
-
+  var fn = this;
+  var args = [];
+  var _myCurry = function() {
+    var argArray = [].slice.call(arguments);
+    args = args.concat(argArray);
+    if (args.length === numArgs) {
+      return fn.apply(null, args);
+    } else {
+    return _myCurry;
+    }
+  };
+  return _myCurry;
 };
+
+function sumThree(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
+
+sumThree(4, 20, 6); // == 30
+
+// you'll write `Function#curry`!
+var f1 = sumThree.myCurry(3);
+var f2 = f1(4);
+var f3 = f2(20);
+var result = f3(6); // = 30
+console.log(result);
+
+
+// or more briefly:
+console.log(sumThree.myCurry(3)(4)(20)(6)); // == 30
