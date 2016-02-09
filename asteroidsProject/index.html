@@ -8,24 +8,17 @@
     <canvas></canvas>
 
     <script src="lib/movingObject.js"></script>
+    <script src="lib/game.js"></script>
+    <script src="lib/gameView.js"></script>
+    <script src="lib/asteroids.js"></script>
 
     <script>
       var canvasEl = document.getElementsByTagName("canvas")[0];
       canvasEl.height = window.innerHeight;
       canvasEl.width = window.innerWidth;
-      var mo = new Asteroids.MovingObject(
-        { pos: [30, 30], vel: [1,1], radius: 5, colour: "#AA4411"}
-      );
       var ctx = canvasEl.getContext("2d");
-      window.setInterval(function () {
-      // call this once per second
-
-        mo.draw(ctx);
-        mo.move();
-
-      // game.advanceState();
-    }, 20);
-
+      var gv = new GameView();
+      gv.start();
     </script>
   </body>
 </html>
