@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Asteroids</title>
+  </head>
+  <body>
+    <canvas></canvas>
+
+    <script src="lib/movingObject.js"></script>
+
+    <script>
+      var canvasEl = document.getElementsByTagName("canvas")[0];
+      canvasEl.height = window.innerHeight;
+      canvasEl.width = window.innerWidth;
+      var mo = new Asteroids.MovingObject(
+        { pos: [30, 30], vel: [1,1], radius: 5, colour: "#AA4411"}
+      );
+      var ctx = canvasEl.getContext("2d");
+      window.setInterval(function () {
+      // call this once per second
+
+        mo.draw(ctx);
+        mo.move();
+
+      // game.advanceState();
+    }, 20);
+
+    </script>
+  </body>
+</html>
