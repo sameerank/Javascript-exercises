@@ -7,9 +7,9 @@ function UsersSearch (el) {
 UsersSearch.prototype.render = function (jsonObj) {
 
   $("ul.users").html("");
-
   $.each(jsonObj, function(index, el) {
-    $("ul.users").append("<li>" + el.username + "</li>");
+    $("ul.users").append("<li><a href=\"/users/" + el.id + "\">" +
+     el.username + "</li>");
   });
 };
 
