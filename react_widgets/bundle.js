@@ -48,6 +48,7 @@
 	var ReactDOM = __webpack_require__(158);
 	var Tabs = __webpack_require__(159);
 	var Clock = __webpack_require__(160);
+	var Weather = __webpack_require__(162);
 	
 	var tabs = [{ title: "object 1", content: "object 1 content" }, { title: "object 2", content: "object 2 content" }];
 	
@@ -59,7 +60,8 @@
 	      'div',
 	      null,
 	      React.createElement(Tabs, { tabs: tabs }),
-	      React.createElement(Clock, null)
+	      React.createElement(Clock, null),
+	      React.createElement(Weather, null)
 	    );
 	  }
 	});
@@ -19773,6 +19775,41 @@
 	});
 	
 	module.exports = Display;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Weather = React.createClass({
+	  displayName: 'Weather',
+	
+	  getInitialState: function () {
+	    return { coordinates: 7 };
+	  },
+	  setCurrentCoords: function (pos) {
+	    var coords = pos.coords;
+	    this.setState({ coordinates: coords });
+	  },
+	  grabPosition: function () {
+	    navigator.geolocation.getCurrentPosition(this.setCurrentCoords);
+	  },
+	  componentDidMount: function () {
+	    setInterval(this.grabPosition, 1000);
+	  },
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      this.state.coordinates.longitude,
+	      React.createElement('br', null),
+	      this.state.coordinates.latitude
+	    );
+	  }
+	});
+	
+	module.exports = Weather;
 
 /***/ }
 /******/ ]);
