@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'staticpages#root'
+  root to: 'static_pages#root'
 
   namespace :api do
     resources :todos, except: [:new, :edit]
