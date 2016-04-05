@@ -1,3 +1,3 @@
 # Javascript-exercises
 
-Miscellaneous execises in JS.
+Miscellaneous exercises in JS.
