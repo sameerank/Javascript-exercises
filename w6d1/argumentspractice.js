@@ -81,7 +81,6 @@ function curriedSum(numArgs) {
 // // or more briefly:
 // console.log(curriedSum(3)(4)(20)(6)); // == 30
 
-
 Function.prototype.myCurry = function (numArgs) {
   var fn = this;
   var args = [];
